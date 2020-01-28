@@ -15,7 +15,7 @@ To run this application, you need to first clone the `how-to-prevent-infinite-lo
 To do so, open the command prompt and run the below commands one after the other.
 
 ```
-git clone https://github.com/SyncfusionSamples/how-to-prevent-infinite-loop-on-workDays-property-binding angular-8-scheduler
+git clone https://github.com/SyncfusionExamples/how-to-prevent-infinite-loop-on-workdays-property-binding angular-8-scheduler
 cd angular-8-scheduler
 ```
 
