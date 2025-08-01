@@ -1,5 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -7,6 +9,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        ScheduleModule
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -22,10 +28,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('schedule-ang8');
   });
 
-  it('should render title', () => {
+  it('should render schedule component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('schedule-ang8 app is running!');
+    expect(compiled.querySelector('ejs-schedule')).toBeTruthy();
   });
 });
