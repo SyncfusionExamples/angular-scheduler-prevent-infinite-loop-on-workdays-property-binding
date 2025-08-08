@@ -13,7 +13,16 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+      jasmine: {
+        // you can add configuration options for Jasmine here
+        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
+        // for example, you can disable the random execution order
+        random: true
+      }
+    },
+    jasmineHtmlReporter: {
+      suppressAll: true // removes the duplicated traces
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/schedule-ang8'),
@@ -27,6 +36,13 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    // Karma 6+ requires explicit browser configuration for Chrome
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-web-security']
+      }
+    }
   });
 };
